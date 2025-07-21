@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nosso Mapa de Aventuras</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .pulse-button {
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.9; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .fade-in {
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-blue-500 to-purple-600 text-white min-h-screen">
+  <!-- Header -->
+  <header class="p-6 flex flex-col items-center text-center" data-aos="fade-down">
+    <img src="imagens/Foto_principal.jpeg" alt="Foto do casal" class="w-32 h-32 rounded-full shadow-lg mb-4 object-cover transition duration-500 ease-in-out hover:scale-110" />
+    <h1 class="text-3xl font-bold mb-2">Nosso Mapa de Aventuras</h1>
+    <p class="text-white/80">Um espacinho nosso pra gente planejar e sugerir viagens 💖.</p>
+  </header>
+
+  <!-- Surpresa de Viagem -->
+  <section class="px-4 py-6" data-aos="fade-up">
+    <h2 class="text-xl font-semibold mb-4">🎁 Surpresa de Viagem</h2>
+    <button onclick="mostrarViagemSurpresa()" class="pulse-button px-6 py-3 bg-white text-purple-600 rounded-full font-bold hover:bg-purple-100 transition duration-300 shadow-lg">
+      Revelar próxima viagem
+    </button>
+    <div id="viagem-surpresa" class="hidden mt-4 bg-white/10 p-4 rounded-xl shadow-md">
+      <img src="imagens/gramado.jpg" alt="Gramado" class="w-full h-40 object-cover rounded-lg mb-2" />
+      <h3 class="font-bold text-lg">Gramado</h3>
+      <p class="text-sm">Planejada para o segundo semestre de 2025</p>
+      <p class="text-sm text-white/70">Frio, fondue e muito amor.</p>
+    </div>
+  </section>
+
+  <!-- Sugestões de Viagem -->
+  <section class="px-4 py-6" data-aos="fade-up" data-aos-delay="100">
+    <h2 class="text-xl font-semibold mb-4">🌍 Sugestões de Viagem</h2>
+    <h3 class="text-lg font-semibold mt-2 mb-2">Nacionais</h3>
+    <div class="space-y-4 mb-6">
+      <div class="bg-white/10 p-4 rounded-xl shadow-md transition duration-700 ease-in-out hover:scale-105">
+        <img src="imagens/BetoCarrero.webp" alt="Beto Carrero" class="w-full h-40 object-cover rounded-lg mb-2" />
+        <h4 class="font-bold text-lg">Beto Carrero</h4>
+        <p class="text-sm">Planejado para o primeiro semestre de 2026</p>
+      </div>
+      <div class="bg-white/10 p-4 rounded-xl shadow-md transition duration-700 ease-in-out hover:scale-105">
+        <img src="imagens/fortaleza.jpg" alt="Fortaleza" class="w-full h-40 object-cover rounded-lg mb-2" />
+        <h4 class="font-bold text-lg">Fortaleza</h4>
+        <p class="text-sm">Planejado para o segundo semestre de 2026</p>
+      </div>
+    </div>
+
+    <h3 class="text-lg font-semibold mt-4 mb-2">Internacionais</h3>
+    <div class="space-y-4">
+      <div class="bg-white/10 p-4 rounded-xl shadow-md transition duration-700 ease-in-out hover:scale-105">
+        <img src="imagens/disney.webp" alt="Disney" class="w-full h-40 object-cover rounded-lg mb-2" />
+        <h4 class="font-bold text-lg">Disney</h4>
+        <p class="text-sm">Diversão, magia e memórias para a vida toda.</p>
+      </div>
+      <div class="bg-white/10 p-4 rounded-xl shadow-md transition duration-700 ease-in-out hover:scale-105">
+        <img src="imagens/paris.jpg" alt="Paris" class="w-full h-40 object-cover rounded-lg mb-2" />
+        <h4 class="font-bold text-lg">Paris</h4>
+        <p class="text-sm">Romance, torre e muito vinho.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Viagens Realizadas -->
+  <section class="px-4 py-6 pb-16" data-aos="fade-up" data-aos-delay="200">
+    <h2 class="text-xl font-semibold mb-4">🌟 Viagens Realizadas</h2>
+    <div class="space-y-4">
+      <div class="bg-white/10 p-4 rounded-xl shadow-md transition duration-700 ease-in-out hover:scale-105">
+        <img src="imagens/gramado.jpg" alt="Balneário Camboriú" class="w-full h-40 object-cover rounded-lg mb-2" />
+        <h3 class="font-bold text-lg">Balneário Camboriú</h3>
+        <p class="text-sm">Janeiro de 2024</p>
+        <p class="text-sm text-white/70">Praia, sol e arranha-céus ✨</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+    function mostrarViagemSurpresa() {
+      const card = document.getElementById("viagem-surpresa");
+      const botao = event.target;
+      card.classList.remove("hidden");
+      card.classList.add("block", "fade-in");
+      botao.classList.add("hidden");
+    }
+  </script>
+</body>
+</html>
